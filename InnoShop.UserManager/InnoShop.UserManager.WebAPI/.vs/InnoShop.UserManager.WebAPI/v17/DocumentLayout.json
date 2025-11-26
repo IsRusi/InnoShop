@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D1E39BB-2067-4C93-9920-FE12D2139957}|..\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D07A76C1-31DD-41F3-BEEA-D874CA443FEB}|..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.domain\\models\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D07A76C1-31DD-41F3-BEEA-D874CA443FEB}|..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D07A76C1-31DD-41F3-BEEA-D874CA443FEB}|..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.domain\\interfaces\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D07A76C1-31DD-41F3-BEEA-D874CA443FEB}|..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.domain\\innoshop.usermanager.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D1E39BB-2067-4C93-9920-FE12D2139957}|..\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.infrastructure\\innoshop.usermanager.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Models\\Entity.cs",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Domain\\Models\\Entity.cs",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Models\\Entity.cs",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Domain\\Models\\Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:51:36.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:50:56.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Interfaces\\IRepository\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Domain\\Interfaces\\IRepository\\IUserRepository.cs",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Interfaces\\IRepository\\IUserRepository.cs",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Domain\\Interfaces\\IRepository\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:49:51.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Domain\\Models\\User.cs",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Models\\User.cs",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Domain\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:49:10.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InnoShop.UserManager.Domain",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Domain\\InnoShop.UserManager.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-26T16:48:55.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InnoShop.UserManager.Infrastructure",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj",
+              "RelativeToolTip": "..\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-26T16:48:49.999Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 893,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
