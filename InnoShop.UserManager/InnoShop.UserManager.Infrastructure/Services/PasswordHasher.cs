@@ -1,0 +1,55 @@
+﻿using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Interfaces.IService;
+using System.Security.Cryptography;
+
+namespace InnoShop.UserManager.Infrastructure.Services
+{
+    public class PasswordHasher : IPasswordHasher
+    {
+        private const int SaltSize = 16;
+        private const int KeySize = 32;
+        private const int Iterations = 100000;
+        private const char Delimiter = ';';
+
+        public string PasswordHash(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("Password cannot be empty", nameof(password));
+
+            using var rng = RandomNumberGenerator.Create();
+            var salt = new byte[SaltSize];
+            rng.GetBytes(salt);
+
+            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations, HashAlgorithmName.SHA256);
+            var key = pbkdf2.GetBytes(KeySize);
+
+            return string.Join(Delimiter, Iterations, Convert.ToBase64String(salt), Convert.ToBase64String(key));
+        }
+
+        public bool VerifyPasswordHash(string password, string hash)
+        {
+            if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(hash))
+                return false;
+
+            try
+            {
+                var parts = hash.Split(Delimiter);
+                if (parts.Length != 3)
+                    return false;
+
+                var iterations = int.Parse(parts[0]);
+                var salt = Convert.FromBase64String(parts[1]);
+                var key = Convert.FromBase64String(parts[2]);
+
+                using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256);
+                var keyToCheck = pbkdf2.GetBytes(KeySize);
+
+                return CryptographicOperations.FixedTimeEquals(keyToCheck, key);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}
