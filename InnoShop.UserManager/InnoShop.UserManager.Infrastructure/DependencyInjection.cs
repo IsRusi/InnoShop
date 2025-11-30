@@ -1,16 +1,18 @@
-﻿using InnoShop.UserManager.Application.Interfaces.IRepository;
+﻿using InnoShop.Shared.Application.Interfaces;
+using InnoShop.Shared.Infrastructure.Services;
+using InnoShop.UserManager.Application.Common.Settings;
+using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Application.Interfaces.IService;
+using InnoShop.UserManager.Domain.Interfaces;
 using InnoShop.UserManager.Domain.Interfaces.IService;
+using InnoShop.UserManager.Infrastructure.Clients;
 using InnoShop.UserManager.Infrastructure.Data;
 using InnoShop.UserManager.Infrastructure.Options;
 using InnoShop.UserManager.Infrastructure.Repositories;
 using InnoShop.UserManager.Infrastructure.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace InnoShop.UserManager.Infrastructure
 {
@@ -22,15 +24,24 @@ namespace InnoShop.UserManager.Infrastructure
             service.AddSettings(cfg);
             service.AddDbContext<UserContext>(options =>
         options.UseNpgsql(cfg.GetConnectionString("DefaultConnection")));
-            //service.AddScoped<IUserRepository, UserRepository>();
+            
+            var productServiceSettings = cfg.GetSection("ProductServiceSettings").Get<ProductServiceSettings>()
+                ?? throw new InvalidOperationException("ProductServiceSettings not configured");
+            
+            service.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
+            {
+                client.BaseAddress = new Uri(productServiceSettings.BaseAddress);
+                client.DefaultRequestHeaders.Add(productServiceSettings.HeaderName, productServiceSettings.ServiceKey);
+            });
+            
             service.AddScoped<IEmailService, EmailSender>();
             service.AddScoped<IJwtService, JwtService>();
+            service.AddScoped<ICurrentUserService, CurrentUserService>();
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             service.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
             service.AddScoped<IEmailConfirmationTokenRepository, EmailConfirmationTokenRepository>();
             service.AddScoped<IPasswordHasher, PasswordHasher>();
-            //service.AddMediatR();
             return service;
         }
 
@@ -38,6 +49,9 @@ namespace InnoShop.UserManager.Infrastructure
         {
             service.Configure<JwtSettings>(cfg.GetSection(JwtSettings.section));
             service.Configure<SmtpSettings>(cfg.GetSection(SmtpSettings.section));
+            service.Configure<AppSettings>(cfg.GetSection(AppSettings.section));
+            service.Configure<PasswordResetTokenSettings>(cfg.GetSection("PasswordResetTokenSettings"));
+            service.Configure<ProductServiceSettings>(cfg.GetSection("ProductServiceSettings"));
             return service;
         }
         

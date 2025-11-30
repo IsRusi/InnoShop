@@ -1,4 +1,4 @@
-namespace InnoShop.ProductManagment.Application.Common
+namespace InnoShop.ProductManagment.Application.Common.Constants
 {
     public static class ErrorMessages
     {
@@ -12,8 +12,10 @@ namespace InnoShop.ProductManagment.Application.Common
         public const string DescriptionTooLong = "Description cannot exceed 500 characters";
         public const string PriceRequired = "Price is required";
         public const string AlreadyActivated = "Product is already available";
+        public const string AlreadyProductExists = "Product ID is required";
         public const string AlreadyDeactivated = "Product is already unavailable";
         public const string AlreadyDeleted = "Product is already deleted";
         public const string AlreadyRecovered = "Product is already active";
+        public const string UserIsNull = "User ID must be valid";
     }
 }

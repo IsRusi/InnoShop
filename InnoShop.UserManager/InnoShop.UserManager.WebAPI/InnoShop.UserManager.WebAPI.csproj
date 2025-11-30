@@ -18,15 +18,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.6.23" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\InnoShop.UserManager.Application\InnoShop.UserManager.Application.csproj" />
     <ProjectReference Include="..\InnoShop.UserManager.Infrastructure\InnoShop.UserManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\InnoShop.Shared\Infrastructure\InnoShop.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,15 +15,15 @@ namespace InnoShop.UserManager.Domain.Models
         //public UserRole Role { get; set; } = UserRole.User;
         public string PasswordHash { get; set; } = string.Empty;
 
-        // Token collections
+
         public List<RefreshToken> RefreshTokens { get; set; } = new();
         public List<PasswordResetToken> PasswordResetTokens { get; set; } = new();
         public List<EmailConfirmationToken> EmailConfirmationTokens { get; set; } = new();
         public void DeActivate()
         {
-            if (IsActive)
+            if (!IsActive)
             {
-                throw new DomainException("Account is active");
+                throw new DomainException("Account  deactived");
             }
             IsActive = false;
         }
@@ -31,7 +31,7 @@ namespace InnoShop.UserManager.Domain.Models
         {
             if (IsDeleted)
             {
-                throw new DomainException("Account is deleted");
+                throw new DomainException("Account deleted");
             }
             IsDeleted = true;
         }

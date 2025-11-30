@@ -16,11 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\InnoShop.Shared\Application\InnoShop.Shared.Application.csproj" />
+    <ProjectReference Include="..\..\InnoShop.Shared\Infrastructure\InnoShop.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\InnoShop.UserManager.Domain\InnoShop.UserManager.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Users\Commands\NewFolder\" />
   </ItemGroup>
 
 </Project>

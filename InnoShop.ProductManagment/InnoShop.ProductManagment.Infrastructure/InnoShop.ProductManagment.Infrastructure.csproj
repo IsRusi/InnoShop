@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\InnoShop.Shared\Infrastructure\InnoShop.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\InnoShop.ProductManagment.Application\InnoShop.ProductManagment.Application.csproj" />
     <ProjectReference Include="..\InnoShop.ProductManagment.Domain\InnoShop.ProductManagment.Domain.csproj" />
   </ItemGroup>

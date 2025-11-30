@@ -1,7 +1,7 @@
 using MediatR;
-using InnoShop.ProductManagment.Application.Common;
 using InnoShop.ProductManagment.Application.Interfaces;
 using InnoShop.ProductManagment.Domain.Exceptions;
+using InnoShop.ProductManagment.Application.Common.Constants;
 
 namespace InnoShop.ProductManagment.Application.Products.Commands.UpdateProduct
 {
@@ -16,20 +16,20 @@ namespace InnoShop.ProductManagment.Application.Products.Commands.UpdateProduct
 
         public async Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _repository.GetProductByIdAsync(request.Id, cancellationToken);
+            var product = await _repository.GetProductByIdAsync(request.id, cancellationToken);
             if (product == null)
                 throw new ProductNotFoundException(ErrorMessages.ProductNotFound);
 
-            if (product.UserId != request.UserId)
+            if (product.UserId != request.userId)
                 throw new UnauthorizedProductAccessException(ErrorMessages.UnauthorizedAccess);
 
-            product.ChangeName(request.Name);
-            product.ChangeDescription(request.Description);
-            product.ChangePrice(request.Price);
+            product.ChangeName(request.name);
+            product.ChangeDescription(request.description);
+            product.ChangePrice(request.price);
 
-            if (request.IsAvailable && !product.IsAvailable)
+            if (request.isAvailable && !product.IsAvailable)
                 product.SetAvailable();
-            else if (!request.IsAvailable && product.IsAvailable)
+            else if (!request.isAvailable && product.IsAvailable)
                 product.SetUnavailable();
 
             await _repository.UpdateProductAsync(product, cancellationToken);

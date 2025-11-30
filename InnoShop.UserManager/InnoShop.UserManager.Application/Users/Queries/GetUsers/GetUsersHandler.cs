@@ -9,8 +9,7 @@ namespace InnoShop.UserManager.Application.Users.Queries.GetUsers
     {
         private readonly IUserRepository _userRepository;
         public GetUsersHandler(IUserRepository userRepository) => _userRepository = userRepository;
-        public async Task<UserDto> Handle(GetUserQuery request,
-            CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(request.id);
             var userDtos = new UserDto() 

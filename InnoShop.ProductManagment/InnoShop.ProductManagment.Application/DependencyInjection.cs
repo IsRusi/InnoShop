@@ -1,5 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
+using InnoShop.ProductManagment.Application.Common.Behaviors;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InnoShop.ProductManagment.Application
 {
@@ -12,7 +14,7 @@ namespace InnoShop.ProductManagment.Application
 
 
             services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
-
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             return services;
         }
     }

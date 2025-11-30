@@ -10,6 +10,6 @@ namespace InnoShop.ProductManagment.Application.Interfaces
         Task AddProductAsync(Product product, CancellationToken cancellationToken = default);
         Task UpdateProductAsync(Product product, CancellationToken cancellationToken = default);
         Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default);
-        Task SaveChangesAsync(CancellationToken cancellationToken = default);
+
     }
 }

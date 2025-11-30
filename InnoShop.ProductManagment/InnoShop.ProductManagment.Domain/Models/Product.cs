@@ -9,10 +9,10 @@ public class Product : Entity
     public string Name { get; private set; }
     public string Description { get; private set; }
     public double Price { get; private set; }
-    public bool IsAvailable { get; private set; }
+    public bool IsAvailable { get; private set; } = true;
     public Guid UserId { get; init; }
     public DateTime CreatedAt { get; init; }
-    public bool IsDeleted { get; private set; }
+    public bool IsDeleted { get; set; } = false;
 
     private Product() { }
 

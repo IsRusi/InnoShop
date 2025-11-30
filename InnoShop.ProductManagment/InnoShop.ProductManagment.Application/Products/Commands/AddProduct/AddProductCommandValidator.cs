@@ -1,5 +1,5 @@
 using FluentValidation;
-using InnoShop.ProductManagment.Application.Common;
+using InnoShop.ProductManagment.Application.Common.Constants;
 
 namespace InnoShop.ProductManagment.Application.Products.Commands.AddProduct
 {
@@ -20,7 +20,7 @@ namespace InnoShop.ProductManagment.Application.Products.Commands.AddProduct
                 .GreaterThan(0).WithMessage(ErrorMessages.InvalidPrice);
 
             RuleFor(x => x.UserId)
-                .NotEmpty().WithMessage("User ID must be valid");
+                .NotEmpty().WithMessage(ErrorMessages.UserIsNull);
         }
     }
 }

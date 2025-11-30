@@ -8,7 +8,7 @@ namespace InnoShop.UserManager.Application.Interfaces.IRepository
         Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<User> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
         Task<bool> ExistsByEmailAsync(string email, CancellationToken cancellationToken = default);
-        Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken = default);
+       
         Task AddAsync(User user, CancellationToken cancellationToken = default);
         Task<bool> DeleteAsync(User user, CancellationToken cancellationToken = default);
         Task<bool> UpdateAsync(User user, CancellationToken cancellationToken = default);

@@ -15,7 +15,7 @@ namespace InnoShop.UserManager.Application.Users.Commands.AddUser
         public async Task Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByEmailAsync(request.userDto.Email);
-            if(user == null)
+            if(user != null)
             {
                 throw new UserNotFoundException(ErrorMessages.EmailAlreadyExists);
             }

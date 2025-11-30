@@ -26,5 +26,6 @@ namespace InnoShop.UserManager.Application.Common.Constants
         public const string UserDataIsRequired = "Данные пользователя обязательны.";
         public const string RoleIsRequired = "Роль пользователя обязательна.";
         public const string ConfirmationTokenIsRequired = "Токен подтверждения обязателен.";
+        public const string TokenNotFound = "Токен не найден.";
     }
 }

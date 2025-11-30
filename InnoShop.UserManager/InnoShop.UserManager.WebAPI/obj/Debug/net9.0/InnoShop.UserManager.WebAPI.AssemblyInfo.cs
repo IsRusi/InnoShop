@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InnoShop.UserManager.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad6f39348b8520c5895c61acea5354e2f78b984d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+275a3c2fb1bfa32424acedcf2a1e635d9f3cd6b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("InnoShop.UserManager.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InnoShop.UserManager.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

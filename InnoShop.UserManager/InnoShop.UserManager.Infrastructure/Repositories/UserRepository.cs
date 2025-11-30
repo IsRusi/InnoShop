@@ -27,10 +27,7 @@ namespace InnoShop.UserManager.Infrastructure.Repositories
             => await userContext.Users.AnyAsync(user => user.Email.Equals(email), cancellationToken);
 
 
-        public Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            throw new Exception();
-        }
+    
         //=> userContext.Users.AnyAsync(user => );
 
         public async Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default)

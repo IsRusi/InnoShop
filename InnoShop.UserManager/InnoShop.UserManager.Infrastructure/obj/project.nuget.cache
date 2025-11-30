@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dV1OG0BtVb0=",
+  "dgSpecHash": "v1T7WiPhu6Y=",
   "success": true,
   "projectFilePath": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Infrastructure\\InnoShop.UserManager.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,8 @@
     "C:\\Users\\dib08\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\dib08\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\dib08\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.11\\microsoft.aspnetcore.authentication.jwtbearer.9.0.11.nupkg.sha512",
+    "C:\\Users\\dib08\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\dib08\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\dib08\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\dib08\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
     "C:\\Users\\dib08\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",

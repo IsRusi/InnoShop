@@ -1,54 +1,86 @@
-﻿using InnoShop.UserManager.Application.DTOs;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using InnoShop.UserManager.Application.Authentication.Commands;
+﻿using InnoShop.UserManager.Application.Authentication.Commands;
+using InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail;
+using InnoShop.UserManager.Application.Authentication.Commands.Logout;
+using InnoShop.UserManager.Application.Authentication.Commands.Registration;
+using InnoShop.UserManager.Application.Authentication.Commands.ResetPassword;
 using InnoShop.UserManager.Application.Authentication.Queries;
 using InnoShop.UserManager.Application.Authentication.Queries.Login;
-using InnoShop.UserManager.Application.Authentication.Commands.Registration;
-using InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail;
+using InnoShop.UserManager.Application.DTOs;
+using InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode;
+using InnoShop.UserManager.Domain.Models;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InnoShop.UserManager.WebAPI.Controllers
 {
-    [AllowAnonymous]
     [Route("[controller]")]
-    public class AuthenticationController(IMediator meadiator) : ControllerBase
+    public class AuthenticationController(IMediator mediator) : ControllerBase
     {
        
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+        [AllowAnonymous]
+        public async Task<IActionResult> Register([FromBody] RegisterDto dto, CancellationToken cancellationToken = default)
         {
-            var command = new RegistrationCommand(dto.FirstName,dto.SecondName,dto.Email,dto.PasswordHash);
-            await meadiator.Send(command);
+            var command = new RegistrationCommand(dto.FirstName, dto.SecondName, dto.Email, dto.PasswordHash);
+            await mediator.Send(command, cancellationToken);
             return Ok(dto);
         }
+
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        [AllowAnonymous]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto, CancellationToken cancellationToken = default)
         {
-            var query = new LoginQuery(dto.Email,dto.Password);
-            var result = await meadiator.Send(query);
+            var query = new LoginQuery(dto.Email, dto.Password);
+            var result = await mediator.Send(query, cancellationToken);
             var response = new
             {
                 access_token = result.Token,
                 user = result.User
-                };
+            };
             return Ok(Results.Json(response));
         }
-        [HttpGet("verify-email", Name = "VerifyEmailRoute")]
-        public async Task<IActionResult> VerifyEmail([FromQuery] Guid userId, [FromQuery] string token)
-        {
-            var command = new ConfirmEmailCommand(userId, token);
-            await meadiator.Send(command);
-            
-            return Ok("успех");
-        }
-        [HttpGet("verify-email", Name = "VerifyEmailRoute")]
-        public async Task<IActionResult> ResetPassword([FromQuery] Guid userId, [FromQuery] string token)
-        {
-            var command = new ConfirmEmailCommand(userId, token);
-            await meadiator.Send(command);
 
-            return Ok("успех");
+        [HttpPost("verify-email")]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailRequest request, CancellationToken cancellationToken = default)
+        {
+            var command = new ConfirmEmailCommand(request.UserId, request.Token);
+            await mediator.Send(command, cancellationToken);
+            
+            return Ok(new { message = "Email has been successfully verified" });
+        }
+
+        [HttpPost("forgotPassword")]
+        [AllowAnonymous]
+        public async Task<ActionResult> SendPasswordResetCode([FromBody] SendPasswordResetCodeCommand request, CancellationToken cancellationToken = default)
+        {
+            await mediator.Send(request, cancellationToken);
+
+            return Ok(new { message = "Password reset code has been sent to your email" });
+        }
+
+        [HttpPost("reset-password")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request, CancellationToken cancellationToken)
+        {
+            var command = new ResetPasswordCommand(request.UserId, request.Token, request.NewPassword);
+            await mediator.Send(command, cancellationToken);
+
+            return Ok(new { message = "Password has been successfully reset" });
+        }
+
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout([FromBody] LogoutRequest request, CancellationToken cancellationToken = default)
+        {
+            var command = new LogoutCommand { UserId = request.UserId, RefreshToken = request.RefreshToken };
+            await mediator.Send(command, cancellationToken);
+
+            return Ok(new { message = "Successfully logged out" });
         }
     }
+
+
 }

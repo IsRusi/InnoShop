@@ -37,20 +37,20 @@ namespace InnoShop.UserManager.Infrastructure.Services
             }
         }
 
-        public async Task SendPasswordResetAsync(string toEmail, string resetLink)
+        public async Task SendResetCodeAsync(string toEmail, string code, string link)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(emailSettings.Value.FromName, smtpSettings.Value.FromAddress));
             message.To.Add(new MailboxAddress("User", toEmail));
             message.Subject = "Reset Your Password";
-            
+
             var htmlBody = $@"
                 <h2>Password Reset Request</h2>
                 <p>We received a request to reset your password. Click the link below to proceed:</p>
-                <p><a href='{resetLink}'>Reset Password</a></p>
+                <p><a href='{link}'>Reset Password</a></p>
                 <p>Or copy and paste this link in your browser:</p>
-                <p>{resetLink}</p>
-                <p>This link will expire in 30 hour.</p>
+                <p>{link}</p>
+                <p>This link will expire in 1 day.</p>
                 <p>If you did not request a password reset, please ignore this email.</p>
             ";
 
@@ -64,5 +64,23 @@ namespace InnoShop.UserManager.Infrastructure.Services
                 await client.DisconnectAsync(true);
             }
         }
+        //public async Task SendResetCodeAsync(string toEmail, string code, string link)
+        //{
+        //    var message = new MimeMessage();
+        //    message.From.Add(new MailboxAddress(emailSettings.Value.FromName, smtpSettings.Value.FromAddress));
+        //    message.To.Add(new MailboxAddress(smtpSettings.Value.FromAddress, toEmail));
+        //    message.Subject = $"Token for reset password {DateTime.UtcNow:yyyy/MM/dd/h}";
+        //    message.Body = new TextPart() { Text = $@"this is your token reset password :{code}" };
+
+        //    using (var client = new SmtpClient())
+        //    {
+        //        await client.ConnectAsync(smtpSettings.Value.Host, smtpSettings.Value.Port, SecureSocketOptions.StartTls);
+        //        await client.AuthenticateAsync(smtpSettings.Value.FromAddress, smtpSettings.Value.Password);
+        //        await client.SendAsync(message);
+        //        await client.DisconnectAsync(true);
+        //    }
+        //   ;
+
+        //}
     }
 }

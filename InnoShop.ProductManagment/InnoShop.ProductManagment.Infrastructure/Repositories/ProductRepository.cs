@@ -16,19 +16,21 @@ namespace InnoShop.ProductManagment.Infrastructure.Repositories
         public async Task<IEnumerable<Product>> GetAllByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
         {
             return await dbContext.Products
-                .Where(p => p.UserId == userId)
+                .Where(p => p.UserId == userId && !p.IsDeleted)
                 .ToListAsync(cancellationToken);
         }
 
         public async Task<Product?> GetProductByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await dbContext.Products
-                .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+                .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted, cancellationToken);
         }
 
         public async Task<IEnumerable<Product>> GetProductsAsync(CancellationToken cancellationToken = default)
         {
-            return await dbContext.Products.ToListAsync(cancellationToken);
+            return await dbContext.Products
+                .Where(p => !p.IsDeleted)
+                .ToListAsync(cancellationToken);
         }
 
         public async Task UpdateProductAsync(Product product, CancellationToken cancellationToken = default)
@@ -39,18 +41,17 @@ namespace InnoShop.ProductManagment.Infrastructure.Repositories
 
         public async Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var product = await GetProductByIdAsync(id, cancellationToken);
+            var product = await dbContext.Products
+                .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
             if (product != null)
             {
-                dbContext.Products.Remove(product);
+                product.Delete();
+                dbContext.Products.Update(product);
                 await dbContext.SaveChangesAsync(cancellationToken);
             }
         }
 
-        public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            await dbContext.SaveChangesAsync(cancellationToken);
-        }
+       
     }
 }
 
