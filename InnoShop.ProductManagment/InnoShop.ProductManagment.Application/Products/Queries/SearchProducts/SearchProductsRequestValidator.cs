@@ -29,7 +29,7 @@ namespace InnoShop.ProductManagment.Application.Products.Queries.SearchProducts
             RuleFor(x => x.UserId)
                 .NotEqual(Guid.Empty)
                 .WithMessage(ErrorMessages.UserIdEmpty)
-                .When(x => x.UserId.HasValue);
+                .When(x => x.UserId.HasValue && x.UserId != Guid.Empty);
         }
     }
 }

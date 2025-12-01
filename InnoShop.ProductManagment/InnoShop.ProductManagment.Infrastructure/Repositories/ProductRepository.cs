@@ -35,7 +35,8 @@ namespace InnoShop.ProductManagment.Infrastructure.Repositories
 
         public async Task<IEnumerable<Product>> SearchAsync(SearchParams request, CancellationToken cancellationToken = default)
         {
-            var query = dbContext.Products.Where(p => !p.IsDeleted);
+            var query = dbContext.Products
+            .Where(p => !p.IsDeleted);
 
             if (!string.IsNullOrWhiteSpace(request.SearchTerm))
             {
