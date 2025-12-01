@@ -42,11 +42,11 @@ namespace InnoShop.ProductManagment.WebApi.Controllers
             return Ok(products);
         }
 
-        [HttpGet("search")]
-        public async Task<IActionResult> Search([FromBody] SearchProductsRequest request,CancellationToken cancellationToken = default)
+         [HttpPost("search")]
+        public async Task<IActionResult> SearchByRequest([FromBody] SearchProductsRequest request,CancellationToken cancellationToken = default)
         {
             var query = new SearchProductsQuery(request);
-            var products = await _mediator.Send(query,cancellationToken);
+            var products = await _mediator.Send(query, cancellationToken);
 
             return Ok(products);
         }

@@ -63,18 +63,6 @@ namespace InnoShop.UserManager.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpPost("send-password-reset-code")]
-        public async Task<IActionResult> SendPasswordResetCode([FromBody] SendPasswordResetCodeCommand request, CancellationToken cancellationToken = default)
-        {
-            if (request == null || string.IsNullOrWhiteSpace(request.Email))
-                return BadRequest("Email is required");
-
-            var command = new SendPasswordResetCodeCommand(request.Email);
-            await _mediator.Send(command, cancellationToken);
-
-            return Ok(new { message = "Password reset code has been sent to your email" });
-        }
-
         [HttpPatch("{id:guid}")]
         [Authorize]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest request, CancellationToken cancellationToken = default)

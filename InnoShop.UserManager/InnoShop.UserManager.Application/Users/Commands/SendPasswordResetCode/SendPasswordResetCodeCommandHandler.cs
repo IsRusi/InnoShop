@@ -46,9 +46,10 @@ namespace InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode
 
             await _passwordResetTokenRepository.AddAsync(resetToken);
 
-            var resetLink = $"{_appSettings.Value.FrontendUrl}/reset-password?id={user.Id}&token={token}";
-
-            await _emailService.SendResetCodeAsync(user.Email, token, resetLink);
+            // var resetLink = $"{_appSettings.Value.FrontendUrl}/reset-password?id={user.Id}&token={token}";
+            var resetData = $"user Id: {user.Id}\n token: {token}";
+            var returnLink = _appSettings.Value.FrontendUrl+"swagger/index.html";
+            await _emailService.SendResetCodeAsync(user.Email, resetData, returnLink);
         }
 
         private string GenerateSecureToken()

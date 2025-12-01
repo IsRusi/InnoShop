@@ -37,7 +37,7 @@ namespace InnoShop.UserManager.Infrastructure.Services
             }
         }
 
-        public async Task SendResetCodeAsync(string toEmail, string code, string link)
+        public async Task SendResetCodeAsync(string toEmail, string tokenWithUserId, string link)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(emailSettings.Value.FromName, smtpSettings.Value.FromAddress));
@@ -46,11 +46,10 @@ namespace InnoShop.UserManager.Infrastructure.Services
 
             var htmlBody = $@"
                 <h2>Password Reset Request</h2>
-                <p>We received a request to reset your password. Click the link below to proceed:</p>
-                <p><a href='{link}'>Reset Password</a></p>
-                <p>Or copy and paste this link in your browser:</p>
-                <p>{link}</p>
-                <p>This link will expire in 1 day.</p>
+                <p>We received a request to reset your password. Copy and Paste user id and token below:</p>
+                <p>{tokenWithUserId}</p>
+                <p>return home</p>
+                <a>{link}</a>
                 <p>If you did not request a password reset, please ignore this email.</p>
             ";
 

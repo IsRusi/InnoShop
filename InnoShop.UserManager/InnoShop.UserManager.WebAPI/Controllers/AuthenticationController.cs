@@ -47,15 +47,6 @@ namespace InnoShop.UserManager.WebAPI.Controllers
             return Ok(new { message = "Email has been successfully verified" });
         }
 
-        [HttpGet("verify-email")]
-        [AllowAnonymous]
-        public async Task<IActionResult> VerifyEmailGet([FromQuery] Guid id, [FromQuery] string token, CancellationToken cancellationToken = default)
-        {
-            var command = new ConfirmEmailCommand(id, token);
-            await mediator.Send(command, cancellationToken);
-
-            return Ok(new { message = "Email has been successfully verified" });
-        }
 
         [HttpPost("forgotPassword")]
         [AllowAnonymous]
@@ -76,15 +67,6 @@ namespace InnoShop.UserManager.WebAPI.Controllers
             return Ok(new { message = "Password has been successfully reset" });
         }
 
-        [HttpGet("reset-password")]
-        [AllowAnonymous]
-        public async Task<IActionResult> ResetPasswordGet([FromQuery] Guid userId, [FromQuery] string token, [FromQuery] string newPassword, CancellationToken cancellationToken = default)
-        {
-            var command = new ResetPasswordCommand(userId, token, newPassword);
-            await mediator.Send(command, cancellationToken);
-
-            return Ok(new { message = "Password has been successfully reset" });
-        }
 
         [HttpPost("logout")]
         [Authorize]
