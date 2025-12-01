@@ -1,8 +1,7 @@
-﻿using InnoShop.UserManager.Application.Interfaces.IRepository;
-using InnoShop.UserManager.Domain.Interfaces.IService;
-using MediatR;
+﻿using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Application.Common.Constants;
+using MediatR;
 
 namespace InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail
 {
@@ -21,7 +20,6 @@ namespace InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail
 
         public async Task Handle(ConfirmEmailCommand request, CancellationToken cancellationToken)
         {
-            // Fetch confirmation token from DB
             var confirmationToken = await _emailConfirmationTokenRepository.GetByTokenAsync(request.token, cancellationToken);
             if (confirmationToken == null || !confirmationToken.IsValid())
                 throw new InvalidTokenException(ErrorMessages.IncorrectToken);

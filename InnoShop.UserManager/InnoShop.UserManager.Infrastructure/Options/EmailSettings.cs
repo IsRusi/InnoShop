@@ -2,6 +2,6 @@
 {
     public class EmailSettings
     {
-        public required string FromName { get; init; } = "Inno Shop Bot";
+        public string FromName { get; init; } = "Inno Shop Bot";
     }
 }

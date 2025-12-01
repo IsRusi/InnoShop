@@ -1,5 +1,5 @@
-using MediatR;
 using InnoShop.ProductManagment.Application.DTOs;
+using MediatR;
 
 namespace InnoShop.ProductManagment.Application.Products.Queries.GetProducts
 {

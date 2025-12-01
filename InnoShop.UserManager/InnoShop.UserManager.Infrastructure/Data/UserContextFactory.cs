@@ -5,10 +5,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace UserManager.Infrastructure.Data
 {
-    public class UserContextFactory: IDesignTimeDbContextFactory<UserContext>
+    public class UserContextFactory : IDesignTimeDbContextFactory<UserContext>
     {
-
-        public  UserContext CreateDbContext(string[] args)
+        public UserContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

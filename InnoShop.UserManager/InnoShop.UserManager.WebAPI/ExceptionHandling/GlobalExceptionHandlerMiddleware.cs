@@ -1,12 +1,5 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
 using InnoShop.UserManager.Domain.Exceptions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using System.Text.RegularExpressions;
-using System.Text.Json;
 
 namespace InnoShop.UserManager.WebAPI.ExceptionHandling
 {
@@ -47,7 +40,6 @@ namespace InnoShop.UserManager.WebAPI.ExceptionHandling
 
             if (exception is DomainException domainException)
             {
-
                 var status = MapDomainExceptionToStatusCode(domainException);
                 response.Status = status;
                 response.Title = GetTitle(status);

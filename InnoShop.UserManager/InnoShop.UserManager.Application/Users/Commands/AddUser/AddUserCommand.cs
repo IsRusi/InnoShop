@@ -3,5 +3,5 @@ using MediatR;
 
 namespace InnoShop.UserManager.Application.Users.Commands.AddUser
 {
-    public record AddUserCommand(UserDto userDto):IRequest;
+    public record AddUserCommand(UserDto userDto) : IRequest;
 }

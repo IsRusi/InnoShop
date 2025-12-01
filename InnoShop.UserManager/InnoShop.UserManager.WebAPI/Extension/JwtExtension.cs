@@ -1,7 +1,6 @@
 ﻿using InnoShop.UserManager.Infrastructure.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Runtime;
 using System.Text;
 
 namespace InnoShop.UserManager.WebAPI.Extension
@@ -10,7 +9,6 @@ namespace InnoShop.UserManager.WebAPI.Extension
     {
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration cfg)
         {
-
             services.Configure<JwtSettings>(cfg.GetSection(JwtSettings.section));
             var jwtSettings = cfg.GetSection(JwtSettings.section).Get<JwtSettings>();
 
@@ -24,7 +22,7 @@ namespace InnoShop.UserManager.WebAPI.Extension
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    ValidateLifetime = true, 
+                    ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = jwtSettings.Issuer,
                     ValidAudience = jwtSettings.Audience,
@@ -36,4 +34,4 @@ namespace InnoShop.UserManager.WebAPI.Extension
             return services;
         }
     }
-    }
+}

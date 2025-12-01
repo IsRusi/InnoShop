@@ -2,13 +2,13 @@ namespace InnoShop.UserManager.Domain.Models
 {
     public class PasswordResetToken : TokenEntity
     {
-
         public bool IsUsed { get; set; } = false;
         public DateTime? UsedAt { get; set; }
 
         public User? User { get; set; }
 
-        private PasswordResetToken() { }
+        private PasswordResetToken()
+        { }
 
         public static PasswordResetToken Create(Guid userId, string token, DateTime expirationDate)
         {

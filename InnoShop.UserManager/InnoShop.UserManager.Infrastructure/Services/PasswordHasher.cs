@@ -1,5 +1,4 @@
-﻿using InnoShop.UserManager.Application.Common.Constants;
-using InnoShop.UserManager.Application.Interfaces.IService;
+﻿using InnoShop.UserManager.Application.Interfaces.IService;
 using System.Security.Cryptography;
 
 namespace InnoShop.UserManager.Infrastructure.Services

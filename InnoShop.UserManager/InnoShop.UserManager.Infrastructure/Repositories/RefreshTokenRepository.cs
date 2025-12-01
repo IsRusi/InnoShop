@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InnoShop.UserManager.Infrastructure.Repositories
 {
-    internal class RefreshTokenRepository(UserContext userContext) : IRefreshTokenRepository
+    public class RefreshTokenRepository(UserContext userContext) : IRefreshTokenRepository
     {
         public async Task AddAsync(RefreshToken token, CancellationToken cancellationToken = default)
         {

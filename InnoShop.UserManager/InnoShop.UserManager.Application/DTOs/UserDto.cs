@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InnoShop.UserManager.Application.DTOs
+﻿namespace InnoShop.UserManager.Application.DTOs
 {
     public class UserDto
     {
@@ -17,9 +11,6 @@ namespace InnoShop.UserManager.Application.DTOs
         public bool IsEmailConfirmed { get; set; } = false;
         public string Role { get; set; } = string.Empty;
 
-        //public UserRole Role { get; set; } = UserRole.User;
         public string PasswordHash { get; set; } = string.Empty;
-
-        
     }
 }

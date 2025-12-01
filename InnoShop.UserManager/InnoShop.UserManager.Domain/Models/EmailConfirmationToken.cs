@@ -7,7 +7,8 @@ namespace InnoShop.UserManager.Domain.Models
 
         public User? User { get; set; }
 
-        private EmailConfirmationToken() { }
+        private EmailConfirmationToken()
+        { }
 
         public static EmailConfirmationToken Create(Guid userId, string token, DateTime expirationDate)
         {

@@ -1,5 +1,4 @@
 using MediatR;
-using System.Xml.Linq;
 
 namespace InnoShop.ProductManagment.Application.Products.Commands.AddProduct
 {

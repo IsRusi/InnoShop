@@ -12,7 +12,6 @@ namespace InnoShop.ProductManagment.Application
             services.AddMediatR(cfg =>
                 cfg.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection)));
 
-
             services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             return services;

@@ -15,7 +15,7 @@ namespace InnoShop.UserManager.Infrastructure.Services
             message.From.Add(new MailboxAddress(emailSettings.Value.FromName, smtpSettings.Value.FromAddress));
             message.To.Add(new MailboxAddress("User", toEmail));
             message.Subject = "Confirm Your Email Address";
-            
+
             var htmlBody = $@"
                 <h2>Email Confirmation</h2>
                 <p>Please confirm your email address by clicking the link below:</p>
@@ -64,23 +64,5 @@ namespace InnoShop.UserManager.Infrastructure.Services
                 await client.DisconnectAsync(true);
             }
         }
-        //public async Task SendResetCodeAsync(string toEmail, string code, string link)
-        //{
-        //    var message = new MimeMessage();
-        //    message.From.Add(new MailboxAddress(emailSettings.Value.FromName, smtpSettings.Value.FromAddress));
-        //    message.To.Add(new MailboxAddress(smtpSettings.Value.FromAddress, toEmail));
-        //    message.Subject = $"Token for reset password {DateTime.UtcNow:yyyy/MM/dd/h}";
-        //    message.Body = new TextPart() { Text = $@"this is your token reset password :{code}" };
-
-        //    using (var client = new SmtpClient())
-        //    {
-        //        await client.ConnectAsync(smtpSettings.Value.Host, smtpSettings.Value.Port, SecureSocketOptions.StartTls);
-        //        await client.AuthenticateAsync(smtpSettings.Value.FromAddress, smtpSettings.Value.Password);
-        //        await client.SendAsync(message);
-        //        await client.DisconnectAsync(true);
-        //    }
-        //   ;
-
-        //}
     }
 }

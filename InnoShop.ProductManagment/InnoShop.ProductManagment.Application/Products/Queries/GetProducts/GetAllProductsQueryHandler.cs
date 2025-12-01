@@ -1,7 +1,7 @@
-using MediatR;
 using InnoShop.ProductManagment.Application.DTOs;
 using InnoShop.ProductManagment.Application.Interfaces;
 using InnoShop.ProductManagment.Domain.Models;
+using MediatR;
 
 namespace InnoShop.ProductManagment.Application.Products.Queries.GetProducts
 {

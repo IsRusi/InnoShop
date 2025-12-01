@@ -1,5 +1,4 @@
 using FluentValidation;
-using InnoShop.UserManager.Application.DTOs;
 using InnoShop.UserManager.Application.Common.Constants;
 
 namespace InnoShop.UserManager.Application.Users.Commands.AddUser

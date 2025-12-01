@@ -1,9 +1,8 @@
-﻿using InnoShop.UserManager.Application.Interfaces.IRepository;
+﻿using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Application.Interfaces.IService;
-using InnoShop.UserManager.Domain.Models;
-using MediatR;
 using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Application.Common.Constants;
+using MediatR;
 
 namespace InnoShop.UserManager.Application.Authentication.Commands.ResetPassword
 {
@@ -25,7 +24,6 @@ namespace InnoShop.UserManager.Application.Authentication.Commands.ResetPassword
 
         public async Task Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
         {
-            // Validate reset token
             var resetToken = await _passwordResetTokenRepository.GetByTokenAsync(request.Token, cancellationToken);
             if (resetToken == null || !resetToken.IsValid())
                 throw new InvalidTokenException(ErrorMessages.IncorrectToken);
@@ -40,7 +38,6 @@ namespace InnoShop.UserManager.Application.Authentication.Commands.ResetPassword
             user.ResetPassword(_passwordHasher.PasswordHash(request.NewPassword));
             await _userRepository.UpdateAsync(user, cancellationToken);
 
-            // Mark token as used
             resetToken.MarkAsUsed();
             await _passwordResetTokenRepository.UpdateAsync(resetToken, cancellationToken);
         }

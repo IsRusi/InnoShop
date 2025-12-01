@@ -2,7 +2,7 @@
 {
     public class ProductServiceOptions
     {
-        public required string HeaderName { get; init; }
-        public required string ServiceKey { get; init; }
+        public string HeaderName { get; init; }
+        public string ServiceKey { get; init; }
     }
 }

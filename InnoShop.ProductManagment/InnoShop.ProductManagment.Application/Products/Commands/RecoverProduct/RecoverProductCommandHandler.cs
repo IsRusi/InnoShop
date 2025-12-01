@@ -1,5 +1,5 @@
-using MediatR;
 using InnoShop.ProductManagment.Application.Interfaces;
+using MediatR;
 
 namespace InnoShop.ProductManagment.Application.Products.Commands.RecoverProduct
 {

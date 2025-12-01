@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InnoShop.UserManager.Infrastructure.Repositories
 {
-    internal class EmailConfirmationTokenRepository(UserContext userContext) : IEmailConfirmationTokenRepository
+    public class EmailConfirmationTokenRepository(UserContext userContext) : IEmailConfirmationTokenRepository
     {
         public async Task AddAsync(EmailConfirmationToken token, CancellationToken cancellationToken = default)
         {

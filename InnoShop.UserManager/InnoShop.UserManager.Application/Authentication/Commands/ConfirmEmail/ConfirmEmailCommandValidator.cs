@@ -1,7 +1,6 @@
 using FluentValidation;
 using InnoShop.UserManager.Application.Common.Constants;
 
-
 namespace InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail
 {
     public class ConfirmEmailCommandValidator : AbstractValidator<ConfirmEmailCommand>

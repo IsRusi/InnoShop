@@ -9,7 +9,6 @@ namespace InnoShop.ProductManagment.WebApi.Extension
     {
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration cfg)
         {
-
             services.Configure<JwtSettings>(cfg.GetSection(JwtSettings.section));
             var jwtSettings = cfg.GetSection(JwtSettings.section).Get<JwtSettings>();
 

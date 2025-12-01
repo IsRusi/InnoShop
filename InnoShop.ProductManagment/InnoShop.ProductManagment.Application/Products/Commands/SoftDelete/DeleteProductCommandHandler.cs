@@ -1,8 +1,7 @@
-using MediatR;
-using InnoShop.ProductManagment.Application.Common;
+using InnoShop.ProductManagment.Application.Common.Constants;
 using InnoShop.ProductManagment.Application.Interfaces;
 using InnoShop.ProductManagment.Domain.Exceptions;
-using InnoShop.ProductManagment.Application.Common.Constants;
+using MediatR;
 
 namespace InnoShop.ProductManagment.Application.Products.Commands.SoftDelete
 {

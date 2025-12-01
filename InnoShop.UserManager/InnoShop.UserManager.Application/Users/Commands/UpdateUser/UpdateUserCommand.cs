@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace InnoShop.UserManager.Application.Users.Commands.UpdateUser
 {
-    internal class UpdateUserCommand
-    {
-    }
+    public record UpdateUserCommand(
+        Guid UserId,
+        string FirstName,
+        string LastName,
+        string Email
+    ) : IRequest;
 }

@@ -14,7 +14,6 @@ namespace InnoShop.UserManager.WebAPI
             builder.Services.AddControllers();
             builder.Services.AddApplicationDependencies(cfg);
 
-            
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -25,19 +24,20 @@ namespace InnoShop.UserManager.WebAPI
 
             app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
-            app.UseHttpsRedirection();
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseHttpsRedirection();
+            }
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
             app.MapControllers();
 
             app.Run();
         }
-
     }
 }
-

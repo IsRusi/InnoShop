@@ -13,13 +13,13 @@ namespace InnoShop.UserManager.Infrastructure.Clients
 
         public async Task DeactivateProductsAsync(Guid userId, CancellationToken cancellationToken = default)
         {
-            var response = await _httpClient.PostAsync($"/api/products/internal/users/{userId}/deactivate", null, cancellationToken);
+            var response = await _httpClient.PostAsync($"/api/products/users/{userId}/deactivate", null, cancellationToken);
             response.EnsureSuccessStatusCode();
         }
 
         public async Task RecoverProductsAsync(Guid userId, CancellationToken cancellationToken = default)
         {
-            var response = await _httpClient.PostAsync($"/api/products/internal/users/{userId}/recover", null, cancellationToken);
+            var response = await _httpClient.PostAsync($"/api/products/users/{userId}/recover", null, cancellationToken);
             response.EnsureSuccessStatusCode();
         }
     }

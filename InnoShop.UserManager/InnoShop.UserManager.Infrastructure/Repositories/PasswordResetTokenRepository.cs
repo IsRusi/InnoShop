@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InnoShop.UserManager.Infrastructure.Repositories
 {
-    internal class PasswordResetTokenRepository(UserContext userContext) : IPasswordResetTokenRepository
+    public class PasswordResetTokenRepository(UserContext userContext) : IPasswordResetTokenRepository
     {
         public async Task AddAsync(PasswordResetToken token, CancellationToken cancellationToken = default)
         {

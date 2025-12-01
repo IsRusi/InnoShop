@@ -3,6 +3,7 @@ using InnoShop.UserManager.Application.Users.Commands.ActivateUser;
 using InnoShop.UserManager.Application.Users.Commands.AddUser;
 using InnoShop.UserManager.Application.Users.Commands.DeactivateUser;
 using InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode;
+using InnoShop.UserManager.Application.Users.Commands.UpdateUser;
 using InnoShop.UserManager.Application.Users.Queries.GetUsers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -65,7 +66,18 @@ namespace InnoShop.UserManager.WebAPI.Controllers
 
             return Ok(new { message = "Password reset code has been sent to your email" });
         }
+
+        [HttpPatch("{id:guid}")]
+        [Authorize]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest request, CancellationToken cancellationToken = default)
+        {
+            if (request == null)
+                return BadRequest("Request body is required");
+
+            var command = new UpdateUserCommand(id, request.FirstName, request.LastName, request.Email);
+            await _mediator.Send(command, cancellationToken);
+
+            return NoContent();
+        }
     }
 }
-
-

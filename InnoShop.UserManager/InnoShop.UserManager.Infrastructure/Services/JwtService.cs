@@ -1,7 +1,6 @@
 ﻿using InnoShop.UserManager.Domain.Interfaces.IService;
 using InnoShop.UserManager.Domain.Models;
 using InnoShop.UserManager.Infrastructure.Options;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -64,7 +63,6 @@ namespace InnoShop.UserManager.Infrastructure.Services
             return Task.FromResult(Convert.ToBase64String(randomBytes));
         }
 
-      
         public ClaimsPrincipal? ValidateToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

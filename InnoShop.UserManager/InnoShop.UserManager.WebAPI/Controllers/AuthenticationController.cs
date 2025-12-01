@@ -1,16 +1,12 @@
-﻿using InnoShop.UserManager.Application.Authentication.Commands;
-using InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail;
+﻿using InnoShop.UserManager.Application.Authentication.Commands.ConfirmEmail;
 using InnoShop.UserManager.Application.Authentication.Commands.Logout;
 using InnoShop.UserManager.Application.Authentication.Commands.Registration;
 using InnoShop.UserManager.Application.Authentication.Commands.ResetPassword;
-using InnoShop.UserManager.Application.Authentication.Queries;
 using InnoShop.UserManager.Application.Authentication.Queries.Login;
 using InnoShop.UserManager.Application.DTOs;
 using InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode;
-using InnoShop.UserManager.Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InnoShop.UserManager.WebAPI.Controllers
@@ -18,7 +14,6 @@ namespace InnoShop.UserManager.WebAPI.Controllers
     [Route("[controller]")]
     public class AuthenticationController(IMediator mediator) : ControllerBase
     {
-       
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto, CancellationToken cancellationToken = default)
@@ -32,7 +27,7 @@ namespace InnoShop.UserManager.WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginDto dto, CancellationToken cancellationToken = default)
         {
-            var query = new LoginQuery(dto.Email, dto.Password);
+            var query = new LoginQuery(dto.Email ?? string.Empty, dto.Password ?? string.Empty);
             var result = await mediator.Send(query, cancellationToken);
             var response = new
             {
@@ -48,7 +43,17 @@ namespace InnoShop.UserManager.WebAPI.Controllers
         {
             var command = new ConfirmEmailCommand(request.UserId, request.Token);
             await mediator.Send(command, cancellationToken);
-            
+
+            return Ok(new { message = "Email has been successfully verified" });
+        }
+
+        [HttpGet("verify-email")]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyEmailGet([FromQuery] Guid id, [FromQuery] string token, CancellationToken cancellationToken = default)
+        {
+            var command = new ConfirmEmailCommand(id, token);
+            await mediator.Send(command, cancellationToken);
+
             return Ok(new { message = "Email has been successfully verified" });
         }
 
@@ -63,9 +68,19 @@ namespace InnoShop.UserManager.WebAPI.Controllers
 
         [HttpPost("reset-password")]
         [AllowAnonymous]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request, CancellationToken cancellationToken = default)
         {
             var command = new ResetPasswordCommand(request.UserId, request.Token, request.NewPassword);
+            await mediator.Send(command, cancellationToken);
+
+            return Ok(new { message = "Password has been successfully reset" });
+        }
+
+        [HttpGet("reset-password")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPasswordGet([FromQuery] Guid userId, [FromQuery] string token, [FromQuery] string newPassword, CancellationToken cancellationToken = default)
+        {
+            var command = new ResetPasswordCommand(userId, token, newPassword);
             await mediator.Send(command, cancellationToken);
 
             return Ok(new { message = "Password has been successfully reset" });
@@ -81,6 +96,4 @@ namespace InnoShop.UserManager.WebAPI.Controllers
             return Ok(new { message = "Successfully logged out" });
         }
     }
-
-
 }

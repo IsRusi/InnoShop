@@ -1,11 +1,11 @@
-﻿using InnoShop.UserManager.Application.Common.Settings;
+﻿using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Common.Settings;
 using InnoShop.UserManager.Application.Interfaces.IRepository;
-using InnoShop.UserManager.Domain.Interfaces.IService;
 using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Domain.Interfaces.IService;
+using InnoShop.UserManager.Domain.Models;
 using MediatR;
 using Microsoft.Extensions.Options;
-using InnoShop.UserManager.Domain.Models;
 
 namespace InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode
 {
@@ -42,8 +42,8 @@ namespace InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode
             var token = GenerateSecureToken();
             var expiresAt = DateTime.UtcNow.AddMinutes(_passwordResetTokenSettings.Value.ExpireMinutes);
 
-            var resetToken = PasswordResetToken.Create(user.Id,token,expiresAt);
-            
+            var resetToken = PasswordResetToken.Create(user.Id, token, expiresAt);
+
             await _passwordResetTokenRepository.AddAsync(resetToken);
 
             var resetLink = $"{_appSettings.Value.FrontendUrl}/reset-password?id={user.Id}&token={token}";

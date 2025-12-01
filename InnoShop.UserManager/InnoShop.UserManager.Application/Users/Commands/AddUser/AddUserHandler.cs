@@ -1,21 +1,21 @@
-﻿using InnoShop.UserManager.Application.DTOs;
+﻿using InnoShop.UserManager.Application.Common.Constants;
 using InnoShop.UserManager.Application.Interfaces.IRepository;
+using InnoShop.UserManager.Domain.Exceptions;
 using InnoShop.UserManager.Domain.Models;
 using MediatR;
-using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Application.Common.Constants;
 
 namespace InnoShop.UserManager.Application.Users.Commands.AddUser
 {
     public class AddUserHandler : IRequestHandler<AddUserCommand>
     {
         private readonly IUserRepository _userRepository;
+
         public AddUserHandler(IUserRepository userRepository) => _userRepository = userRepository;
 
         public async Task Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByEmailAsync(request.userDto.Email);
-            if(user != null)
+            if (user != null)
             {
                 throw new UserNotFoundException(ErrorMessages.EmailAlreadyExists);
             }

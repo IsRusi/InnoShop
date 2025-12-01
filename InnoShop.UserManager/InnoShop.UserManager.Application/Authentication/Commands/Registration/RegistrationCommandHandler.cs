@@ -10,7 +10,7 @@ using Microsoft.Extensions.Options;
 
 namespace InnoShop.UserManager.Application.Authentication.Commands.Registration
 {
-    public class RegistrationCommandHandler:IRequestHandler<RegistrationCommand>
+    public class RegistrationCommandHandler : IRequestHandler<RegistrationCommand>
     {
         private readonly IJwtService _jwtService;
         private readonly IEmailService _emailService;

@@ -1,11 +1,8 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
 using InnoShop.ProductManagment.Application;
 using InnoShop.ProductManagment.Infrastructure;
 using InnoShop.Shared.Application.Interfaces;
 using InnoShop.Shared.Infrastructure.Services;
+using Microsoft.OpenApi.Models;
 
 namespace InnoShop.ProductManagment.WebApi.Extension
 {
@@ -17,12 +14,11 @@ namespace InnoShop.ProductManagment.WebApi.Extension
 
             // Add HTTP Context Accessor FIRST - needed by CurrentUserService
             services.AddHttpContextAccessor();
-            
+
             var connectionString = cfg.GetConnectionString("DefaultConnection");
             services.AddJwtAuthentication(cfg);
             services.AddInfrastructure(cfg);
             services.AddApplication();
-
 
             services.AddEndpointsApiExplorer();
 
@@ -53,7 +49,7 @@ namespace InnoShop.ProductManagment.WebApi.Extension
                 });
             });
             services.AddAuthorization();
-            
+
             // Register Shared services
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 

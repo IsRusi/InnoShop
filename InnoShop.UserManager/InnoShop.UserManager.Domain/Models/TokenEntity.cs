@@ -1,6 +1,6 @@
 ﻿namespace InnoShop.UserManager.Domain.Models
 {
-    public class TokenEntity:Entity
+    public class TokenEntity : Entity
     {
         public Guid UserId { get; set; }
         public string Token { get; set; } = string.Empty;

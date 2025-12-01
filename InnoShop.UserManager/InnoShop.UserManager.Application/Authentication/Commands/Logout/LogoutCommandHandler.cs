@@ -1,5 +1,5 @@
-using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Domain.Exceptions;
 using MediatR;
 
@@ -10,7 +10,7 @@ namespace InnoShop.UserManager.Application.Authentication.Commands.Logout
         public async Task Handle(LogoutCommand request, CancellationToken cancellationToken)
         {
             var refreshToken = await refreshTokenRepository.GetByTokenAsync(request.RefreshToken, cancellationToken);
-            
+
             if (refreshToken == null)
             {
                 throw new TokenNotFoundException(ErrorMessages.TokenNotFound);

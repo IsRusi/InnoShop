@@ -1,5 +1,5 @@
-﻿using InnoShop.ProductManagment.Domain.Models;
-using InnoShop.ProductManagment.Application.Interfaces;
+﻿using InnoShop.ProductManagment.Application.Interfaces;
+using InnoShop.ProductManagment.Domain.Models;
 using InnoShop.ProductManagment.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -51,7 +51,16 @@ namespace InnoShop.ProductManagment.Infrastructure.Repositories
             }
         }
 
-       
+        public async Task RecoverProductAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            var product = await dbContext.Products
+                .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+            if (product != null)
+            {
+                product.Recover();
+                dbContext.Products.Update(product);
+                await dbContext.SaveChangesAsync(cancellationToken);
+            }
+        }
     }
 }
-

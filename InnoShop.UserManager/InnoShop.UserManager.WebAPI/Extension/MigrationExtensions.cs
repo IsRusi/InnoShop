@@ -1,6 +1,5 @@
 ﻿using InnoShop.UserManager.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace InnoShop.UserManager.WebAPI.Extension
 {

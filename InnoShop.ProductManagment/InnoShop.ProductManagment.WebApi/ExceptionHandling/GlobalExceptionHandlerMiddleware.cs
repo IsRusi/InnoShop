@@ -1,9 +1,6 @@
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using FluentValidation;
 using InnoShop.ProductManagment.Domain.Exceptions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 
 namespace InnoShop.ProductManagment.WebApi.ExceptionHandling
 {

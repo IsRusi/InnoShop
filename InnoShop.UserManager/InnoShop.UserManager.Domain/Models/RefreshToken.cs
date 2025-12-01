@@ -7,7 +7,8 @@ namespace InnoShop.UserManager.Domain.Models
 
         public User? User { get; set; }
 
-        private RefreshToken() { }
+        private RefreshToken()
+        { }
 
         public static RefreshToken Create(Guid userId, string token, DateTime expirationDate)
         {

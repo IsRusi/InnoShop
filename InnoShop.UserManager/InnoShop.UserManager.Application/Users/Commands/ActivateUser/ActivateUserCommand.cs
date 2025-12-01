@@ -1,5 +1,4 @@
-﻿using InnoShop.UserManager.Application.DTOs;
-using MediatR;
+﻿using MediatR;
 
 namespace InnoShop.UserManager.Application.Users.Commands.ActivateUser
 {

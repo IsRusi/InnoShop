@@ -1,15 +1,14 @@
-﻿using InnoShop.UserManager.Application.Interfaces.IRepository;
-using MediatR;
+﻿using InnoShop.UserManager.Application.Common.Constants;
+using InnoShop.UserManager.Application.Interfaces.IRepository;
 using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Application.Common.Constants;
-
+using MediatR;
 
 namespace InnoShop.UserManager.Application.Users.Commands.ActivateUser
 {
-    public class ActivateUserHandler: IRequestHandler<ActivateUserCommand>
+    public class ActivateUserHandler : IRequestHandler<ActivateUserCommand>
     {
-
         private readonly IUserRepository _usersRepository;
+
         public ActivateUserHandler(IUserRepository usersRepository)
         {
             _usersRepository = usersRepository;
@@ -27,7 +26,6 @@ namespace InnoShop.UserManager.Application.Users.Commands.ActivateUser
             user.Activate();
 
             await _usersRepository.UpdateAsync(user);
-
         }
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using InnoShop.UserManager.Application.DTOs;
+using MediatR;
 
 namespace InnoShop.UserManager.Application.Users.Queries.GetUserById
 {
-    internal class GetUserByIdQuery
-    {
-    }
+    public record GetUserByIdQuery(Guid id) : IRequest<UserDto>;
 }

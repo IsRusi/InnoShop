@@ -1,9 +1,9 @@
-﻿using InnoShop.UserManager.Domain.Exceptions;
-using InnoShop.UserManager.Domain.Enum;
+﻿using InnoShop.UserManager.Domain.Common.Constants;
+using InnoShop.UserManager.Domain.Exceptions;
 
 namespace InnoShop.UserManager.Domain.Models
 {
-    public class User:Entity
+    public class User : Entity
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
@@ -12,50 +12,52 @@ namespace InnoShop.UserManager.Domain.Models
         public bool IsDeleted { get; set; } = false;
         public bool IsEmailConfirmed { get; set; } = false;
         public string Role { get; set; } = string.Empty;
-        //public UserRole Role { get; set; } = UserRole.User;
-        public string PasswordHash { get; set; } = string.Empty;
 
+        public string PasswordHash { get; set; } = string.Empty;
 
         public List<RefreshToken> RefreshTokens { get; set; } = new();
         public List<PasswordResetToken> PasswordResetTokens { get; set; } = new();
         public List<EmailConfirmationToken> EmailConfirmationTokens { get; set; } = new();
+
+        public void ResetPassword(string password)
+        {
+            PasswordHash = password;
+        }
+
         public void DeActivate()
         {
             if (!IsActive)
             {
-                throw new DomainException("Account  deactived");
+                throw new DomainException(ErrorMessages.UserAlreadyInactive);
             }
             IsActive = false;
         }
+
         public void SoftDelete()
         {
             if (IsDeleted)
             {
-                throw new DomainException("Account deleted");
+                throw new DomainException(ErrorMessages.UserAlreadyDeleted);
             }
             IsDeleted = true;
         }
+
         public void Activate()
         {
             if (IsActive)
             {
-                throw new DomainException("Account is active");
+                throw new DomainException(ErrorMessages.UserAlreadyActive);
             }
             IsActive = true;
         }
-        public void ResetPassword(string password)
-        {
-            PasswordHash=password;
-        }
+
         public void VerifyEmail()
         {
             if (IsEmailConfirmed)
             {
-                throw new DomainException("Email is confirmed");
+                throw new DomainException(ErrorMessages.EmailAlreadyConfirmed);
             }
-
             IsEmailConfirmed = true;
-
         }
     }
 }
