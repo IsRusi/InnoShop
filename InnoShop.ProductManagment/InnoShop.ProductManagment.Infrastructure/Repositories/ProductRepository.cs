@@ -33,6 +33,41 @@ namespace InnoShop.ProductManagment.Infrastructure.Repositories
                 .ToListAsync(cancellationToken);
         }
 
+        public async Task<IEnumerable<Product>> SearchAsync(SearchParams request, CancellationToken cancellationToken = default)
+        {
+            var query = dbContext.Products.Where(p => !p.IsDeleted);
+
+            if (!string.IsNullOrWhiteSpace(request.SearchTerm))
+            {
+                var searchLower = request.SearchTerm.ToLower();
+                query = query.Where(p =>
+                    p.Name.ToLower().Contains(searchLower) ||
+                    p.Description.ToLower().Contains(searchLower));
+            }
+
+            if (request.MinPrice.HasValue)
+            {
+                query = query.Where(p => p.Price >= request.MinPrice);
+            }
+
+            if (request.MaxPrice.HasValue)
+            {
+                query = query.Where(p => p.Price <= request.MaxPrice);
+            }
+
+            if (request.IsAvailable.HasValue)
+            {
+                query = query.Where(p => p.IsAvailable == request.IsAvailable);
+            }
+
+            if (request.UserId.HasValue && request.UserId != Guid.Empty)
+            {
+                query = query.Where(p => p.UserId == request.UserId);
+            }
+
+            return await query.ToListAsync(cancellationToken);
+        }
+
         public async Task UpdateProductAsync(Product product, CancellationToken cancellationToken = default)
         {
             dbContext.Products.Update(product);

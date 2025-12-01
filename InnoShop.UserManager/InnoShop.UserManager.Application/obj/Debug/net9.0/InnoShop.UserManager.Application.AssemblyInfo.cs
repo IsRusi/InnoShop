@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InnoShop.UserManager.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c6f1fd3620d7360c0ecedcd8af21a0e623d8e4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e88a2cc11a64d70c535d8f1045e88a3f16e666c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("InnoShop.UserManager.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InnoShop.UserManager.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

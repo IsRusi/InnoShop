@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1BE8484C-72B4-483F-8635-FBEAF08CE032}|..\\InnoShop.UserManager.Application\\InnoShop.UserManager.Application.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.application\\users\\commands\\setadminuser\\setadminusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -38,10 +42,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0FDA0DA5-26A1-42BD-BB96-7C6830C9A53E}|InnoShop.UserManager.WebAPI.csproj|o:\\programming\\courses\\innoshop\\innoshop.usermanager\\innoshop.usermanager.webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -511,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SetAdminUserCommandHandler.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Application\\Users\\Commands\\SetAdminUser\\SetAdminUserCommandHandler.cs",
               "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Application\\Users\\Commands\\SetAdminUser\\SetAdminUserCommandHandler.cs",
@@ -524,7 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SetAdminUserCommand.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Application\\Users\\Commands\\SetAdminUser\\SetAdminUserCommand.cs",
               "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Application\\Users\\Commands\\SetAdminUser\\SetAdminUserCommand.cs",
@@ -537,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "launchSettings.json",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.ProductManagment\\InnoShop.ProductManagment.WebApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "..\\..\\InnoShop.ProductManagment\\InnoShop.ProductManagment.WebApi\\Properties\\launchSettings.json",
@@ -550,7 +550,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "launchSettings.json",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -569,14 +569,14 @@
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
               "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAqwBYAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwBYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-30T11:26:34.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "DeactivateUserCommandHandler.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Application\\Users\\Commands\\DeactivateUser\\DeactivateUserCommandHandler.cs",
               "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Application\\Users\\Commands\\DeactivateUser\\DeactivateUserCommandHandler.cs",
@@ -590,19 +590,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-26T19:28:57.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAqwCkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwA4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-26T17:50:07.354Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Domain\\Models\\User.cs",
               "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Domain\\Models\\User.cs",
@@ -641,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
@@ -654,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DeactivateUserCommand.cs",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.Application\\Users\\Commands\\DeactivateUser\\DeactivateUserCommand.cs",
               "RelativeDocumentMoniker": "..\\InnoShop.UserManager.Application\\Users\\Commands\\DeactivateUser\\DeactivateUserCommand.cs",
@@ -680,7 +693,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.ProductManagment\\InnoShop.ProductManagment.WebApi\\appsettings.json",
               "RelativeDocumentMoniker": "..\\..\\InnoShop.ProductManagment\\InnoShop.ProductManagment.WebApi\\appsettings.json",
@@ -689,19 +702,6 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-11-30T15:27:04.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "O:\\programming\\Courses\\InnoShop\\InnoShop.UserManager\\InnoShop.UserManager.WebAPI\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-26T19:28:57.069Z",
               "EditorCaption": ""
             },
             {

@@ -1,6 +1,111 @@
-@InnoShop.ProductManagment.WebApi_HostAddress = http://localhost:5134
+@InnoShop.ProductManagment.WebApi_HostAddress = http://localhost:7156
+@AuthToken = your_jwt_token_here
 
-GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/weatherforecast/
+# Получить все продукты
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products
 Accept: application/json
 
 ###
+
+# Получить продукт по ID
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/{product-id}
+Accept: application/json
+
+###
+
+# Поиск: все продукты
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search
+Accept: application/json
+
+###
+
+# Поиск: по названию (содержит "laptop")
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?searchTerm=laptop
+Accept: application/json
+
+###
+
+# Поиск: в диапазоне цен (100 - 500)
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?minPrice=100&maxPrice=500
+Accept: application/json
+
+###
+
+# Поиск: только доступные продукты
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?isAvailable=true
+Accept: application/json
+
+###
+
+# Поиск: продукты конкретного продавца
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?userId=550e8400-e29b-41d4-a716-446655440000
+Accept: application/json
+
+###
+
+# Поиск: сортировка по цене (возрастание)
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?sortBy=price
+Accept: application/json
+
+###
+
+# Поиск: сортировка по цене (убывание)
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?sortBy=price_desc
+Accept: application/json
+
+###
+
+# Поиск: сортировка по дате создания (новые первыми)
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?sortBy=date_desc
+Accept: application/json
+
+###
+
+# Поиск: пагинация - вторая страница, 10 элементов на странице
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?pageNumber=2&pageSize=10
+Accept: application/json
+
+###
+
+# Поиск: сложный фильтр - "laptop", цена 200-800, только доступные, сортировка по цене, 3-я страница
+GET {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/search?searchTerm=laptop&minPrice=200&maxPrice=800&isAvailable=true&sortBy=price&pageNumber=3&pageSize=15
+Accept: application/json
+
+###
+
+# Создать продукт (требует авторизации)
+POST {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products
+Content-Type: application/json
+Authorization: Bearer {{AuthToken}}
+
+{
+  "name": "Игровой ноутбук",
+  "description": "Мощный ноутбук для игр и работы",
+  "price": 1500
+}
+
+###
+
+# Обновить продукт (требует авторизации)
+PATCH {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/{product-id}
+Content-Type: application/json
+Authorization: Bearer {{AuthToken}}
+
+{
+  "name": "Обновленное название",
+  "description": "Обновленное описание",
+  "price": 1200,
+  "isAvailable": true
+}
+
+###
+
+# Удалить продукт (требует авторизации)
+DELETE {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/{product-id}
+Authorization: Bearer {{AuthToken}}
+
+###
+
+# Восстановить продукт (требует авторизации)
+POST {{InnoShop.ProductManagment.WebApi_HostAddress}}/api/products/{product-id}/recover
+Authorization: Bearer {{AuthToken}}

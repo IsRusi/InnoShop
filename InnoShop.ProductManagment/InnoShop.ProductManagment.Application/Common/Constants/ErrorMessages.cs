@@ -6,10 +6,10 @@ namespace InnoShop.ProductManagment.Application.Common.Constants
         public const string UnauthorizedAccess = "You are not authorized to perform this action";
         public const string InvalidPrice = "Price must be greater than zero";
         public const string NameRequired = "Name is required";
-        public const string NameTooShort = "Name must be at least 3 characters long";
-        public const string NameTooLong = "Name cannot exceed 100 characters";
+        public const string NameTooShort = "Name must be at least {0} characters long";
+        public const string NameTooLong = "Name cannot exceed {0} characters";
         public const string DescriptionRequired = "Description is required";
-        public const string DescriptionTooLong = "Description cannot exceed 500 characters";
+        public const string DescriptionTooLong = "Description cannot exceed {0} characters";
         public const string PriceRequired = "Price is required";
         public const string AlreadyActivated = "Product is already available";
         public const string AlreadyProductExists = "Product ID is required";

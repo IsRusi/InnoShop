@@ -51,7 +51,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://+:80"
-      ConnectionStrings__DefaultConnection: "Host=users-db;Port=5432;Database=usersDb;User Id=postgres;Password=3285;Timeout=30;"
+      ConnectionStrings__DefaultConnection: "Server=users-db;Port=5432;Database=UserManager;User Id=postgres;Password=3285;Timeout=30;"
       Jwt__Key: "d5a372c4dc137ba5e0bb667ea5f65222dc3fd9234aa684248d5224f33f63e22d"
       Jwt__Issuer: "InnoShop.UserManager"
       Jwt__Audience: "InnoShop.ProductManagment"
@@ -90,7 +90,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://+:80"
-      ConnectionStrings__DefaultConnection: "Host=products-db;Port=5432;Database=productsDb;User Id=postgres;Password=3285;Timeout=30;"
+      ConnectionStrings__DefaultConnection: "Server=products-db;Port=5432;Database=ProductManagement;User Id=postgres;Password=3285;Timeout=30;"
       Jwt__Key: "d5a372c4dc137ba5e0bb667ea5f65222dc3fd9234aa684248d5224f33f63e22d"
       Jwt__Issuer: "InnoShop.UserManager"
       Jwt__Audience: "InnoShop.ProductManagment"
@@ -98,7 +98,7 @@ services:
       ProductServiceOptions__HeaderName: "ProductServiceKey"
       ProductServiceOptions__ServiceKey: "7f368aaee5b94d3517696623a8a2e364a977ebaf09c4a41c8fd35b979094eec47"
     ports:
-      - "7130:80"
+      - "7156:80"
     networks:
       - inno-net
     restart: unless-stopped

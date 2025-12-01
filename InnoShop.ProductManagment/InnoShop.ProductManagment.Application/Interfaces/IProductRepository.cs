@@ -10,6 +10,8 @@ namespace InnoShop.ProductManagment.Application.Interfaces
 
         Task<Product?> GetProductByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
+        Task<IEnumerable<Product>> SearchAsync(SearchParams request, CancellationToken cancellationToken = default);
+
         Task AddProductAsync(Product product, CancellationToken cancellationToken = default);
 
         Task UpdateProductAsync(Product product, CancellationToken cancellationToken = default);

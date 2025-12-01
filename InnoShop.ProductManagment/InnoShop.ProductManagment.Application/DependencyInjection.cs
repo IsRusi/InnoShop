@@ -14,6 +14,7 @@ namespace InnoShop.ProductManagment.Application
 
             services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            
             return services;
         }
     }

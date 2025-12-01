@@ -5,6 +5,7 @@ using InnoShop.ProductManagment.Application.Products.Commands.SoftDelete;
 using InnoShop.ProductManagment.Application.Products.Commands.UpdateProduct;
 using InnoShop.ProductManagment.Application.Products.Queries.GetProductById;
 using InnoShop.ProductManagment.Application.Products.Queries.GetProducts;
+using InnoShop.ProductManagment.Application.Products.Queries.SearchProducts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,15 @@ namespace InnoShop.ProductManagment.WebApi.Controllers
         {
             var query = new GetAllProductsQuery();
             var products = await _mediator.Send(query, cancellationToken);
+            return Ok(products);
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromBody] SearchProductsRequest request,CancellationToken cancellationToken = default)
+        {
+            var query = new SearchProductsQuery(request);
+            var products = await _mediator.Send(query,cancellationToken);
+
             return Ok(products);
         }
 
