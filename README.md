@@ -61,3 +61,5 @@
 git clone https://github.com/IsRusi/InnoShop.git
 cd InnoShop
 docker-compose up --build
+```
+После сборки в Docker для доступа к API необходимо открыть: http://localhost:7130/swagger/index.html
