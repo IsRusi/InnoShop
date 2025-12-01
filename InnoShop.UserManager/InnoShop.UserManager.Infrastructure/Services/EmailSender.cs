@@ -46,10 +46,10 @@ namespace InnoShop.UserManager.Infrastructure.Services
 
             var htmlBody = $@"
                 <h2>Password Reset Request</h2>
-                <p>We received a request to reset your password. Copy and Paste user id and token below:</p>
+                <p>We received a request to reset your password.</p>
+                <p> Copy and Paste user id and token below:</p>
                 <p>{tokenWithUserId}</p>
-                <p>return home</p>
-                <a>{link}</a>
+                <p><a href='{link}'>return home</a></p>
                 <p>If you did not request a password reset, please ignore this email.</p>
             ";
 
