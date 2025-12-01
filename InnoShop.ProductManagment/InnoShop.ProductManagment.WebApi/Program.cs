@@ -9,23 +9,30 @@ namespace InnoShop.ProductManagment.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
+             
             var cfg = builder.Configuration.AddJsonFile("appsettings.json", optional: true).Build();
+
 
             builder.Services.AddControllers();
             builder.Services.AddApplicationDependencies(cfg);
 
             var app = builder.Build();
 
+            app.ApplyMigration();
+
             if (app.Environment.IsDevelopment())
             {
-                app.ApplyMigration();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
             app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
-            app.UseHttpsRedirection();
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseHttpsRedirection();
+            }
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();

@@ -50,25 +50,34 @@ services:
         condition: service_healthy
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-      ConnectionStrings__DefaultConnection: "Server=users-db;Database=UserManager;User Id=postgres;Password=3285;"
+      ASPNETCORE_URLS: "http://+:80"
+      ConnectionStrings__DefaultConnection: "Host=users-db;Port=5432;Database=usersDb;User Id=postgres;Password=3285;Timeout=30;"
       Jwt__Key: "d5a372c4dc137ba5e0bb667ea5f65222dc3fd9234aa684248d5224f33f63e22d"
       Jwt__Issuer: "InnoShop.UserManager"
       Jwt__Audience: "InnoShop.ProductManagment"
       Jwt__AccessTokenLifetimeMinutes: "30"
       Smtp__Host: "smtp.gmail.com"
       Smtp__Port: "587"
+      Smtp__Username: "c7673751@gmail.com"
       Smtp__FromAddress: "c7673751@gmail.com"
       Smtp__Password: "fybmlxxbjhdfizsz"
       AppSettings__FrontendUrl: "http://localhost:7155"
-      AppSettings__BackendUrl: "https://localhost:7155"
+      AppSettings__BackendUrl: "http://user-service:80"
       PasswordResetTokenSettings__ExpireMinutes: "15"
-      ProductServiceSettings__BaseAddress: "https://product-service:7156"
+      ProductServiceSettings__BaseAddress: "http://product-service:80"
       ProductServiceSettings__HeaderName: "ProductServiceKey"
       ProductServiceSettings__ServiceKey: "7f368aaee5b94d3517696623a8a2e364a977ebaf09c4a41c8fd35b979094eec47"
     ports:
       - "7155:80"
     networks:
       - inno-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/swagger/index.html"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
         
   product-service:
     build:
@@ -80,7 +89,8 @@ services:
         condition: service_healthy
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-      ConnectionStrings__DefaultConnection: "Server=products-db;Database=ProductManagement;User Id=postgres;Password=3285;"
+      ASPNETCORE_URLS: "http://+:80"
+      ConnectionStrings__DefaultConnection: "Host=products-db;Port=5432;Database=productsDb;User Id=postgres;Password=3285;Timeout=30;"
       Jwt__Key: "d5a372c4dc137ba5e0bb667ea5f65222dc3fd9234aa684248d5224f33f63e22d"
       Jwt__Issuer: "InnoShop.UserManager"
       Jwt__Audience: "InnoShop.ProductManagment"
@@ -88,9 +98,16 @@ services:
       ProductServiceOptions__HeaderName: "ProductServiceKey"
       ProductServiceOptions__ServiceKey: "7f368aaee5b94d3517696623a8a2e364a977ebaf09c4a41c8fd35b979094eec47"
     ports:
-      - "7156:80"
+      - "7130:80"
     networks:
       - inno-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/swagger/index.html"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
 volumes:
   users_pgdata:

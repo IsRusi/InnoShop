@@ -19,6 +19,10 @@ namespace InnoShop.UserManager.Domain.Models
         public List<PasswordResetToken> PasswordResetTokens { get; set; } = new();
         public List<EmailConfirmationToken> EmailConfirmationTokens { get; set; } = new();
 
+        public void SetAdmin()
+        {
+            Role = "Admin";
+        }
         public void ResetPassword(string password)
         {
             PasswordHash = password;

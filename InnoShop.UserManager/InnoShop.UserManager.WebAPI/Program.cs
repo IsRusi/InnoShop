@@ -9,12 +9,14 @@ namespace InnoShop.UserManager.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
             var cfg = builder.Configuration.AddJsonFile("appsettings.json", optional: true).Build();
 
             builder.Services.AddControllers();
             builder.Services.AddApplicationDependencies(cfg);
 
             var app = builder.Build();
+
 
             if (app.Environment.IsDevelopment())
             {
@@ -24,11 +26,11 @@ namespace InnoShop.UserManager.WebAPI
 
             app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
-            if (!app.Environment.IsDevelopment())
+
+            if (app.Environment.IsDevelopment())
             {
                 app.UseHttpsRedirection();
             }
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

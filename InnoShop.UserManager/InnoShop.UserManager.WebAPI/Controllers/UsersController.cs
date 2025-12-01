@@ -3,6 +3,7 @@ using InnoShop.UserManager.Application.Users.Commands.ActivateUser;
 using InnoShop.UserManager.Application.Users.Commands.AddUser;
 using InnoShop.UserManager.Application.Users.Commands.DeactivateUser;
 using InnoShop.UserManager.Application.Users.Commands.SendPasswordResetCode;
+using InnoShop.UserManager.Application.Users.Commands.SetAdminUser;
 using InnoShop.UserManager.Application.Users.Commands.UpdateUser;
 using InnoShop.UserManager.Application.Users.Queries.GetUsers;
 using MediatR;
@@ -19,6 +20,13 @@ namespace InnoShop.UserManager.WebAPI.Controllers
 
         public UsersController(IMediator mediator) => _mediator = mediator;
 
+        [HttpPost("/set-admin/{id:guid}")]
+        public async Task<IActionResult> PromoteToAdmin(Guid id, CancellationToken cancellationToken = default)
+        {
+            var command = new SetAdminUserCommand(id);
+            await _mediator.Send(command, cancellationToken);
+            return Ok(new { message = "You are now an administrator" });
+        }
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get(Guid id, CancellationToken cancellationToken = default)
         {

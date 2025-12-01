@@ -8,9 +8,16 @@ namespace InnoShop.ProductManagment.WebApi.Extension
     {
         public static void ApplyMigration(this WebApplication app)
         {
-            using var scope = app.Services.CreateScope();
-            var db = scope.ServiceProvider.GetRequiredService<ProductManagementDbContext>();
-            db.Database.Migrate();
-        }
+            try
+            {
+                using var scope = app.Services.CreateScope();
+                var db = scope.ServiceProvider.GetRequiredService<ProductManagementDbContext>();
+                db.Database.Migrate();
+            }
+            catch
+            {
+
+            }
+            }
     }
 }
